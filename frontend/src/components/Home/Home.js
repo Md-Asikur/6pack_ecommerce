@@ -9,6 +9,7 @@ import { clearErrors, getProduct } from "../../actions/productAction";
 import { useSelector, useDispatch } from "react-redux";
 import Loader from "../layout/Loader/Loader";
 import { useAlert } from "react-alert";
+import Footer from "../layout/Footer/Footer";
 
 const Home = () => {
   const alert = useAlert();
@@ -53,6 +54,7 @@ const Home = () => {
           </div>
         </Fragment>
       )}
+      <Footer/>
     </Fragment>
   );
 };

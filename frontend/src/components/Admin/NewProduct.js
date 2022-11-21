@@ -13,8 +13,7 @@ import AttachMoneyIcon from "@mui/icons-material/AttachMoney";
 import SideBar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
 
-
-const NewProduct = ({ history}) => {
+const NewProduct = ({ history }) => {
   const dispatch = useDispatch();
   const alert = useAlert();
 
@@ -78,7 +77,7 @@ const NewProduct = ({ history}) => {
       const reader = new FileReader();
 
       reader.onload = () => {
-        if (reader.readyState === 2) {//how many images uplodad
+        if (reader.readyState === 2) {
           setImagesPreview((old) => [...old, reader.result]);
           setImages((old) => [...old, reader.result]);
         }
@@ -177,7 +176,6 @@ const NewProduct = ({ history}) => {
           </form>
         </div>
       </div>
-     
     </Fragment>
   );
 };

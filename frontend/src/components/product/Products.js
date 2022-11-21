@@ -116,7 +116,7 @@ const params=useParams()
               />
             </fieldset>
           </div>
-          {resultPerPage < count && (
+          {resultPerPage <= count && (//condition create by me
             <div className="paginationBox">
               <Pagination
                 activePage={currentPage}

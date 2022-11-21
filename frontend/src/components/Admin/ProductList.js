@@ -130,7 +130,7 @@ const ProductList = ({ history }) => {
             columns={columns}
             pageSize={10}
             disableSelectionOnClick
-            className="productListTable"
+            // className="productListTable"
             autoHeight
           />
         </div>

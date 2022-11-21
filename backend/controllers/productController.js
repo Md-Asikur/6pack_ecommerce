@@ -1,9 +1,9 @@
-const Product=require("../models/productModel");
+const Product = require("../models/productModel");
 const ErrorHandler = require("../utils/errorhandler");
-const catchAsyncErrors=require("../middleware/catchAsyncErrors");
+const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const ApiFeatures = require("../utils/apifeatures");
-const cloudinary=require("cloudinary")
-/// Create Product -- Admin
+const cloudinary = require("cloudinary");
+// Create Product -- Admin
 exports.createProduct = catchAsyncErrors(async (req, res, next) => {
   let images = [];
 
@@ -36,14 +36,43 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
     product,
   });
 });
+//Working pagination but admin porducts===resultperpage product problem
+// Get All Product
+// exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
+//   const resultPerPage = 6;
+//    const productsCount = await Product.countDocuments();
+
+//   const apiFeature = new ApiFeatures(Product.find(), req.query)
+//     .search()
+//     .filter()
+//     .pagination(resultPerPage);
+
+//   let products = await apiFeature.query;
+
+//    let filteredProductsCount = products.length;
+
+//    apiFeature.pagination(resultPerPage);
+
+ 
+
+//   res.status(200).json({
+//     success: true,
+//     products,
+//      productsCount,
+//      resultPerPage,
+//      filteredProductsCount,
+//   });
+// });
+//show alll procduct in admin dashboard but not work pagination
 //get all products
 exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
   // return next(new ErrorHandler("this is my err",500))
-    const resultPerPage = 8;
+    const resultPerPage = 6;
     const productsCount = await Product.countDocuments();
     const apiFeature = new ApiFeatures(Product.find(), req.query)
-        .search()
-        .filter();
+      .search()
+      .filter()
+      // .pagination(resultPerPage);
 
      let products = await apiFeature.query;
 
@@ -67,11 +96,11 @@ exports.getAllProducts = catchAsyncErrors(async (req, res, next) => {
 exports.updateProduct = catchAsyncErrors(async (req, res, next) => {
   let product = await Product.findById(req.params.id);
 
-   if (!product) {
-     return next(new ErrorHandler("Product not found", 404));
-   }
+  if (!product) {
+    return next(new ErrorHandler("Product not found", 404));
+  }
 
-//   // Images Start Here
+  //   // Images Start Here
   let images = [];
 
   if (typeof req.body.images === "string") {
@@ -250,4 +279,3 @@ exports.deleteReview = catchAsyncErrors(async (req, res, next) => {
     success: true,
   });
 });
-

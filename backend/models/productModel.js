@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const productSchema =new mongoose.Schema({
+const productSchema = new mongoose.Schema({
   name: {
     type: String,
     required: [true, "Please Enter product Name"],
@@ -24,10 +24,12 @@ const productSchema =new mongoose.Schema({
       public_id: {
         type: String,
         required: true,
+       
       },
       url: {
         type: String,
         required: true,
+       
       },
     },
   ],

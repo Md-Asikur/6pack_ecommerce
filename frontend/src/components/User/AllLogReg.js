@@ -12,8 +12,8 @@ import { useAlert } from "react-alert";
 const LoginSignUp = () => {
   const dispatch = useDispatch();
   const alert = useAlert();
-    const history = useHistory()
-    const location=useLocation()
+  const history = useHistory();
+  const location = useLocation();
   const { error, loading, isAuthenticated } = useSelector((state) => state.user);
 
   const loginTab = useRef(null);
@@ -37,7 +37,6 @@ const LoginSignUp = () => {
   const loginSubmit = (e) => {
     e.preventDefault();
     dispatch(login(loginEmail, loginPassword));
-   
   };
 
   const registerSubmit = (e) => {
@@ -50,7 +49,6 @@ const LoginSignUp = () => {
     myForm.set("password", password);
     myForm.set("avatar", avatar);
     dispatch(register(myForm));
-    
   };
 
   const registerDataChange = (e) => {

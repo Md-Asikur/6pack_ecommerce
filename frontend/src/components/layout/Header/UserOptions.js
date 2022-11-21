@@ -11,7 +11,7 @@ import { useHistory, useNavigate } from "react-router-dom";
 import { useAlert } from "react-alert";
 import { logout } from "../../../actions/userAction";
 import { useDispatch, useSelector } from "react-redux";
-
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 const UserOptions = ({ user }) => {
   const { cartItems } = useSelector((state) => state.cart);
 
@@ -23,6 +23,7 @@ const UserOptions = ({ user }) => {
   const options = [
     { icon: <ListAltIcon />, name: "Orders", func: orders },
     { icon: <PersonIcon />, name: "Profile", func: account },
+    {icon:<ShoppingCartCheckoutIcon/>,name:"Products",func:products},
     {
       icon: (
         <ShoppingCartIcon style={{ color: cartItems.length > 0 ? "tomato" : "unset" }} />
@@ -53,6 +54,9 @@ const UserOptions = ({ user }) => {
   }
   function cart() {
     history.push("/cart");
+  }
+  function products() {
+    history.push("/products");
   }
   function logoutUser() {
       dispatch(logout());

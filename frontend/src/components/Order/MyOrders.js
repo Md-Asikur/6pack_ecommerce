@@ -99,7 +99,7 @@ const MyOrders = () => {
             columns={columns}
             rowsPerPageOptions={[5, 10, 20]}
             disableSelectionOnClick
-            className="myOrdersTable"
+            // className="myOrdersTable"
             autoHeight
             pagination
            
